@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		106BA7090FE440BD00A2E1A3 /* timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA7080FE440BD00A2E1A3 /* timer.m */; };
 		106BA70E0FE441B900A2E1A3 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA70D0FE441B900A2E1A3 /* Controller.m */; };
+		10BE30840FE4AE15000186DA /* SoTimer.icns in Resources */ = {isa = PBXBuildFile; fileRef = 10BE30830FE4AE15000186DA /* SoTimer.icns */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -22,6 +23,7 @@
 		106BA7080FE440BD00A2E1A3 /* timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timer.m; sourceTree = "<group>"; };
 		106BA70C0FE441B900A2E1A3 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		106BA70D0FE441B900A2E1A3 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		10BE30830FE4AE15000186DA /* SoTimer.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SoTimer.icns; sourceTree = "<group>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				10BE30830FE4AE15000186DA /* SoTimer.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -166,6 +169,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				10BE30840FE4AE15000186DA /* SoTimer.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
