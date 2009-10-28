@@ -44,7 +44,12 @@
 		 [NSString	stringWithFormat:@"%02d:%02d:%02d",
 		  (seconds / 3600) % 24,
 		  (seconds / 60) % 60,
-		  seconds % 60]];		
+		  seconds % 60]];	
+	}
+    // if we are at a multiple of 60 seconds, write out the seconds
+    // to a file for persistence in the case of a crash
+    if (seconds % 10 == 1){
+		NSLog(@"10 sec tick, with %d seconds",seconds);
 	}
 }
 
