@@ -4,6 +4,7 @@
 	int seconds;
 	NSTimer *timer;
     IBOutlet id time;
+	IBOutlet id status;
 	bool isRunning;
 }
 

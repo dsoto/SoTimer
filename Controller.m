@@ -17,6 +17,7 @@
 - (IBAction)restart:(id)sender {
 	seconds = 0;
 	isRunning = true;
+	[status setStringValue:@"Running"];
 	[timer invalidate];
 	timer = [NSTimer scheduledTimerWithTimeInterval:1.0
 											 target:self
@@ -33,18 +34,28 @@
 // pauses timer by toggling boolean
 - (void)pause{
 	isRunning = !isRunning;
+	if (isRunning) {
+		[status setStringValue:@"Paused"];
+	}
+	if (!isRunning) {
+		[status setStringValue:@"Running"];
+	}
 }
 
 // increments seconds by one second
 // updates time outlet
 - (void)tick{
 	if (isRunning) {
+		[status setStringValue:@"Running"];
 		seconds += 1;
 		[time setStringValue:
 		 [NSString	stringWithFormat:@"%02d:%02d:%02d",
 		  (seconds / 3600) % 24,
 		  (seconds / 60) % 60,
 		  seconds % 60]];	
+	}
+	if (!isRunning) {
+		[status setStringValue:@"Paused"];
 	}
     // if we are at a multiple of 60 seconds, write out the seconds
     // to a file for persistence in the case of a crash
