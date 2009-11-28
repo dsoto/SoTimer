@@ -15,45 +15,38 @@
 // release previous timer
 // set timer to call tick every second
 - (IBAction)restart:(id)sender {
-	//[thisSotoView init];
-	//[thisSotoView setNeedsDisplay:YES];
-	[thisSotoView setBlue];
+	NSLog(@"restart");
 	seconds = 0;
-	isRunning = true;
-	[status setStringValue:@"Running"];
+	isRunning = TRUE;
+	[thisSotoView setIsRunning:isRunning];
+	[thisSotoView setNeedsDisplay:YES];
 	[timer invalidate];
 	timer = [NSTimer scheduledTimerWithTimeInterval:1.0
 											 target:self
-										   selector:@selector(tick)
+										   selector:@selector(tick:)
 										   userInfo:NULL
 											repeats:YES];
 }
 
 // receiver for pause button
 - (IBAction)sendPause:(id)sender{
+	NSLog(@"sendPause");
 	[self pause];
 }
 
 // pauses timer by toggling boolean
 - (void)pause{
-	
+	NSLog(@"Play/Pause");
 	isRunning = !isRunning;
 	[thisSotoView setIsRunning:isRunning];
-	if (isRunning) {
-		[status setStringValue:@"Paused"];
-
-	}
-	if (!isRunning) {
-		[status setStringValue:@"Running"];
-	}
 	[thisSotoView setNeedsDisplay:YES];
 }
 
 // increments seconds by one second
 // updates time outlet
-- (void)tick{
+- (void)tick:(NSTimer *)timer{
+	NSLog(@"tick");
 	if (isRunning) {
-		[status setStringValue:@"Running"];
 		seconds += 1;
 		[time setStringValue:
 		 [NSString	stringWithFormat:@"%02d:%02d:%02d",
@@ -61,19 +54,17 @@
 		  (seconds / 60) % 60,
 		  seconds % 60]];	
 	}
-	if (!isRunning) {
-		[status setStringValue:@"Paused"];
-	}
     // if we are at a multiple of 60 seconds, write out the seconds
     // to a file for persistence in the case of a crash
-    if (seconds % 10 == 1){
-		NSLog(@"10 sec tick, with %d seconds",seconds);
+    if (seconds % 60 == 0){
+		NSLog(@"%d minutes",seconds/60);
 	}
 }
 
 // adds 60 seconds to time
 // updates time outlet
 - (IBAction)addMinute:(id)sender {
+	NSLog(@"addMinute");
 	seconds += 60;
 	[time setStringValue:
 	 [NSString	stringWithFormat:@"%02d:%02d:%02d",
@@ -84,6 +75,7 @@
 
 // receiver for restart button
 - (IBAction)sendRestart:(id)sender {
+	NSLog(@"sendRestart");
     [self restart:self];
 }
 
