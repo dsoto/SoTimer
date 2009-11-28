@@ -15,6 +15,9 @@
 // release previous timer
 // set timer to call tick every second
 - (IBAction)restart:(id)sender {
+	//[thisSotoView init];
+	//[thisSotoView setNeedsDisplay:YES];
+	[thisSotoView setBlue];
 	seconds = 0;
 	isRunning = true;
 	[status setStringValue:@"Running"];
@@ -33,13 +36,17 @@
 
 // pauses timer by toggling boolean
 - (void)pause{
+	
 	isRunning = !isRunning;
+	[thisSotoView setIsRunning:isRunning];
 	if (isRunning) {
 		[status setStringValue:@"Paused"];
+
 	}
 	if (!isRunning) {
 		[status setStringValue:@"Running"];
 	}
+	[thisSotoView setNeedsDisplay:YES];
 }
 
 // increments seconds by one second

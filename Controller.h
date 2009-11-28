@@ -1,4 +1,5 @@
 #import <Cocoa/Cocoa.h>
+#include "sotoView.h"
 
 @interface Controller : NSObject {
 	int seconds;
@@ -6,6 +7,7 @@
     IBOutlet id time;
 	IBOutlet id status;
 	bool isRunning;
+	IBOutlet sotoView *thisSotoView;	
 }
 
 - (IBAction)sendRestart:(id)sender;

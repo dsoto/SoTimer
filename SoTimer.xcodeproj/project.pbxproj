@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102C90F010C0BFB60097822A /* sotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 102C90EF10C0BFB60097822A /* sotoView.m */; };
 		106BA70E0FE441B900A2E1A3 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA70D0FE441B900A2E1A3 /* Controller.m */; };
 		10BE30840FE4AE15000186DA /* SoTimer.icns in Resources */ = {isa = PBXBuildFile; fileRef = 10BE30830FE4AE15000186DA /* SoTimer.icns */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
@@ -17,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		102C90EB10C0BF900097822A /* sotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sotoView.h; path = ../../../../applications/_source/cocoa/SoTimer/sotoView.h; sourceTree = SOURCE_ROOT; };
+		102C90EF10C0BFB60097822A /* sotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sotoView.m; path = ../../../../applications/_source/cocoa/SoTimer/sotoView.m; sourceTree = SOURCE_ROOT; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		106BA70C0FE441B900A2E1A3 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		106BA70D0FE441B900A2E1A3 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				102C90EB10C0BF900097822A /* sotoView.h */,
+				102C90EF10C0BFB60097822A /* sotoView.m */,
 				10BE30830FE4AE15000186DA /* SoTimer.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -177,6 +182,7 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				106BA70E0FE441B900A2E1A3 /* Controller.m in Sources */,
+				102C90F010C0BFB60097822A /* sotoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
