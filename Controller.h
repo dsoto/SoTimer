@@ -11,9 +11,9 @@
 }
 
 - (IBAction)sendRestart:(id)sender;
-- (IBAction)restart:(id)sender;
-- (IBAction)pause;
+- (void)restart:(id)sender;
 - (IBAction)addMinute:(id)sender;
 - (IBAction)sendPause:(id)sender;
+- (void)startStop:(id)sender;
 
 @end

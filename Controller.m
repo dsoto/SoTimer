@@ -11,54 +11,60 @@
 	[self restart:self];
 }
 
-// reset seconds to zero
-// release previous timer
-// set timer to call tick every second
-- (IBAction)restart:(id)sender {
+-(void)restart:(id)sender{
 	NSLog(@"restart");
 	seconds = 0;
-	isRunning = TRUE;
-	[thisSotoView setIsRunning:isRunning];
+	if (timer != nil) {
+		[timer invalidate];
+		[timer release];
+		timer = nil;
+	}
+	[self startStop:self];
+}
+
+- (IBAction)startStop:(id)sender {
+	NSLog(@"startStop");
+	if (timer == nil) {
+		NSLog(@"starting");
+		timer = [[NSTimer scheduledTimerWithTimeInterval:1.0
+												 target:self
+											   selector:@selector(tick:)
+											   userInfo:NULL
+												repeats:YES]retain];
+		[thisSotoView setIsRunning:YES];
+	}
+	else {
+		NSLog(@"stopping");
+		[timer invalidate];
+        [timer release];
+		timer = nil;
+		[thisSotoView setIsRunning:NO];
+	}
 	[thisSotoView setNeedsDisplay:YES];
-	[timer invalidate];
-	timer = [NSTimer scheduledTimerWithTimeInterval:1.0
-											 target:self
-										   selector:@selector(tick:)
-										   userInfo:NULL
-											repeats:YES];
 }
 
 // receiver for pause button
 - (IBAction)sendPause:(id)sender{
 	NSLog(@"sendPause");
-	[self pause];
+	[self startStop:self];
 }
 
-// pauses timer by toggling boolean
-- (void)pause{
-	NSLog(@"Play/Pause");
-	isRunning = !isRunning;
-	[thisSotoView setIsRunning:isRunning];
-	[thisSotoView setNeedsDisplay:YES];
-}
 
 // increments seconds by one second
 // updates time outlet
 - (void)tick:(NSTimer *)timer{
-	NSLog(@"tick");
-	if (isRunning) {
-		seconds += 1;
-		[time setStringValue:
+	// NSLog(@"tick");
+	[time setStringValue:
 		 [NSString	stringWithFormat:@"%02d:%02d:%02d",
 		  (seconds / 3600) % 24,
 		  (seconds / 60) % 60,
 		  seconds % 60]];	
-	}
     // if we are at a multiple of 60 seconds, write out the seconds
     // to a file for persistence in the case of a crash
     if (seconds % 60 == 0){
 		NSLog(@"%d minutes",seconds/60);
 	}
+	seconds += 1;
 }
 
 // adds 60 seconds to time
