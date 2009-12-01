@@ -16,6 +16,12 @@
 	return self;
 }
 
+- (void)mouseDown:(NSEvent *)event {
+	NSLog(@"mouseDown");
+	//[NSApp sendAction:@selector(restart:) to:myController from:self];
+	//[myController restart:self];
+}
+
 - (void)drawRect:(NSRect)rect
 {
 	if (isRunning) {
@@ -28,15 +34,10 @@
 	NSRectFill( [self bounds]);
 }
 
-//- (void)setRed:(NSRect)rect
 - (void)setIsRunning:(bool)is
 {
 	isRunning = is;
 }
 
-- (void)setBlue
-{
-	isRunning = TRUE;
-}
 
 @end

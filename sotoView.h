@@ -6,13 +6,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Controller.h"
+@class Controller;
 
 @interface sotoView :	NSView	
 {
 	bool isRunning;
+	IBOutlet Controller *myController;
 }
 
 -(void)setIsRunning:(bool)is;
--(void)setBlue;
 
 @end
