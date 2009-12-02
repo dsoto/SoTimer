@@ -54,29 +54,33 @@
 // updates time outlet
 - (void)tick:(NSTimer *)timer{
 	// NSLog(@"tick");
-	[time setStringValue:
-		 [NSString	stringWithFormat:@"%02d:%02d:%02d",
-		  (seconds / 3600) % 24,
-		  (seconds / 60) % 60,
-		  seconds % 60]];	
-    // if we are at a multiple of 60 seconds, write out the seconds
-    // to a file for persistence in the case of a crash
+	[self updateTime];
     if (seconds % 60 == 0){
 		NSLog(@"%d minutes",seconds/60);
 	}
 	seconds += 1;
 }
 
-// adds 60 seconds to time
-// updates time outlet
-- (IBAction)addMinute:(id)sender {
-	NSLog(@"addMinute");
-	seconds += 60;
+-(void)updateTime
+{
 	[time setStringValue:
 	 [NSString	stringWithFormat:@"%02d:%02d:%02d",
 	  (seconds / 3600) % 24,
 	  (seconds / 60) % 60,
-	  seconds % 60]];			
+	  seconds % 60]];				
+}
+
+- (IBAction)addMinute:(id)sender {
+	NSLog(@"addMinute");
+	seconds += 60;
+	[self updateTime];			
+}
+
+- (IBAction)subtractMinute:(id)sender
+{
+	NSLog(@"subtractMinute");
+	seconds -= 60;
+	[self updateTime];
 }
 
 // receiver for restart button

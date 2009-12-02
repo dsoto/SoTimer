@@ -9,7 +9,7 @@
 #import "Controller.h"
 @class Controller;
 
-@interface sotoView :	NSView	
+@interface sotoView:NSView	
 {
 	bool isRunning;
 	IBOutlet Controller *myController;

@@ -11,8 +11,10 @@
 	IBOutlet sotoView *thisSotoView;	
 }
 
+- (void)updateTime;
 - (IBAction)sendRestart:(id)sender;
 - (IBAction)addMinute:(id)sender;
+- (IBAction)subtractMinute:(id)sender;
 - (IBAction)sendPause:(id)sender;
 - (void)tick:(NSTimer *)timer;
 - (void)restart:(id)sender;

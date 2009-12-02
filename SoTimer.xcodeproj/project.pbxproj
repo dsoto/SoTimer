@@ -49,6 +49,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				106BA70C0FE441B900A2E1A3 /* Controller.h */,
+				106BA70D0FE441B900A2E1A3 /* Controller.m */,
+				102C90EB10C0BF900097822A /* sotoView.h */,
+				102C90EF10C0BFB60097822A /* sotoView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -87,8 +91,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				106BA70C0FE441B900A2E1A3 /* Controller.h */,
-				106BA70D0FE441B900A2E1A3 /* Controller.m */,
 			);
 			name = SoTimer;
 			sourceTree = "<group>";
@@ -105,8 +107,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				102C90EB10C0BF900097822A /* sotoView.h */,
-				102C90EF10C0BFB60097822A /* sotoView.m */,
 				10BE30830FE4AE15000186DA /* SoTimer.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,

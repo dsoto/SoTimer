@@ -18,14 +18,13 @@
 
 - (void)mouseDown:(NSEvent *)event {
 	NSLog(@"mouseDown");
-	//[NSApp sendAction:@selector(restart:) to:myController from:self];
-	//[myController restart:self];
+	[myController startStop:self];
 }
 
 - (void)drawRect:(NSRect)rect
 {
 	if (isRunning) {
-		[[NSColor greenColor] set];		
+		[[NSColor brownColor] set];		
 	}
 	if (!isRunning) {
 		[[NSColor redColor] set];
