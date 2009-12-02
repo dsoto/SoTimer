@@ -12,12 +12,11 @@
 }
 
 - (void)updateTime;
-- (IBAction)sendRestart:(id)sender;
+- (void)tick:(NSTimer *)timer;
+
 - (IBAction)addMinute:(id)sender;
 - (IBAction)subtractMinute:(id)sender;
-- (IBAction)sendPause:(id)sender;
-- (void)tick:(NSTimer *)timer;
-- (void)restart:(id)sender;
-- (void)startStop:(id)sender;
+- (IBAction)restart:(id)sender;
+- (IBAction)startStop:(id)sender;
 
 @end

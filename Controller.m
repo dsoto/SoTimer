@@ -7,11 +7,28 @@
 	return self;
 }
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
 	[self restart:self];
 }
 
--(void)restart:(id)sender{
+- (void)tick:(NSTimer *)timer{
+	// NSLog(@"tick");
+	[self updateTime];
+    if (seconds % 60 == 0){
+		NSLog(@"%d minutes",seconds/60);
+	}
+	seconds += 1;
+}
+
+- (void)updateTime {
+	[time setStringValue:
+	 [NSString	stringWithFormat:@"%02d:%02d:%02d",
+	  (seconds / 3600) % 24,
+	  (seconds / 60) % 60,
+	  seconds % 60]];				
+}
+
+- (IBAction)restart:(id)sender{
 	NSLog(@"restart");
 	seconds = 0;
 	if (timer != nil) {
@@ -43,51 +60,16 @@
 	[thisSotoView setNeedsDisplay:YES];
 }
 
-// receiver for pause button
-- (IBAction)sendPause:(id)sender{
-	NSLog(@"sendPause");
-	[self startStop:self];
-}
-
-
-// increments seconds by one second
-// updates time outlet
-- (void)tick:(NSTimer *)timer{
-	// NSLog(@"tick");
-	[self updateTime];
-    if (seconds % 60 == 0){
-		NSLog(@"%d minutes",seconds/60);
-	}
-	seconds += 1;
-}
-
--(void)updateTime
-{
-	[time setStringValue:
-	 [NSString	stringWithFormat:@"%02d:%02d:%02d",
-	  (seconds / 3600) % 24,
-	  (seconds / 60) % 60,
-	  seconds % 60]];				
-}
-
 - (IBAction)addMinute:(id)sender {
 	NSLog(@"addMinute");
 	seconds += 60;
 	[self updateTime];			
 }
 
-- (IBAction)subtractMinute:(id)sender
-{
+- (IBAction)subtractMinute:(id)sender {
 	NSLog(@"subtractMinute");
 	seconds -= 60;
 	[self updateTime];
 }
-
-// receiver for restart button
-- (IBAction)sendRestart:(id)sender {
-	NSLog(@"sendRestart");
-    [self restart:self];
-}
-
 
 @end

@@ -9,8 +9,7 @@
 
 @implementation sotoView
 
-- (id)initWithFrame:(NSRect)frameRect
-{
+- (id)initWithFrame:(NSRect)frameRect {
 	if ((self = [super initWithFrame:frameRect]) != nil) {
 	}
 	return self;
@@ -21,8 +20,7 @@
 	[myController startStop:self];
 }
 
-- (void)drawRect:(NSRect)rect
-{
+- (void)drawRect:(NSRect)rect{
 	if (isRunning) {
 		[[NSColor brownColor] set];		
 	}
@@ -33,8 +31,7 @@
 	NSRectFill( [self bounds]);
 }
 
-- (void)setIsRunning:(bool)is
-{
+- (void)setIsRunning:(bool)is{
 	isRunning = is;
 }
 
