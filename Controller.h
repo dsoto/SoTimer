@@ -9,11 +9,13 @@
     
 	IBOutlet id time;
 	IBOutlet sotoView *thisSotoView;	
+	NSStatusItem *theItem;
 }
 
 - (void)updateTime;
 - (void)tick:(NSTimer *)timer;
-
+- (void)activateStatusBar;
+- (void)updateStatusBar;
 - (IBAction)addMinute:(id)sender;
 - (IBAction)subtractMinute:(id)sender;
 - (IBAction)restart:(id)sender;

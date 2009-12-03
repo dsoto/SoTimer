@@ -8,6 +8,7 @@
 }
 
 - (void)awakeFromNib {
+	[self activateStatusBar];
 	[self restart:self];
 }
 
@@ -18,6 +19,7 @@
 		NSLog(@"%d minutes",seconds/60);
 	}
 	seconds += 1;
+	[self updateStatusBar];
 }
 
 - (void)updateTime {
@@ -72,4 +74,20 @@
 	[self updateTime];
 }
 
+- (void)activateStatusBar
+{
+	NSStatusBar *bar = [NSStatusBar systemStatusBar];
+	
+	theItem = [bar statusItemWithLength:NSVariableStatusItemLength];
+	[theItem retain];
+	[theItem setTarget:self];
+	[theItem setAction:@selector(startStop:)];
+	}
+
+- (void)updateStatusBar {
+	[theItem setTitle:[NSString	stringWithFormat:@"%02d:%02d:%02d",
+					   (seconds / 3600) % 24,
+					   (seconds / 60) % 60,
+					   seconds % 60]];	
+}
 @end
