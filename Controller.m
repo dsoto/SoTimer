@@ -8,12 +8,12 @@
 }
 
 - (void)awakeFromNib {
+	[self prepareStringAttributes];
 	[self activateStatusBar];
 	[self restart:self];
 }
 
 - (void)tick:(NSTimer *)timer{
-	// NSLog(@"tick");
 	[self updateTime];
     if (seconds % 60 == 0){
 		NSLog(@"%d minutes",seconds/60);
@@ -23,11 +23,11 @@
 }
 
 - (void)updateTime {
-	[time setStringValue:
-	 [NSString	stringWithFormat:@"%02d:%02d:%02d",
-	  (seconds / 3600) % 24,
-	  (seconds / 60) % 60,
-	  seconds % 60]];				
+	timeString = [NSString	stringWithFormat:@"%02d:%02d:%02d",
+				  (seconds / 3600) % 24,
+				  (seconds / 60) % 60,
+				  seconds % 60];
+	[time setStringValue:timeString];
 }
 
 - (IBAction)restart:(id)sender{
@@ -50,6 +50,7 @@
 											   selector:@selector(tick:)
 											   userInfo:NULL
 												repeats:YES]retain];
+		[stringAttributes setObject:[NSColor blackColor] forKey:NSForegroundColorAttributeName];
 		[thisSotoView setIsRunning:YES];
 	}
 	else {
@@ -57,6 +58,9 @@
 		[timer invalidate];
         [timer release];
 		timer = nil;
+		[stringAttributes setObject:[NSColor grayColor] forKey:NSForegroundColorAttributeName];
+		[self updateStatusBar];
+
 		[thisSotoView setIsRunning:NO];
 	}
 	[thisSotoView setNeedsDisplay:YES];
@@ -74,20 +78,24 @@
 	[self updateTime];
 }
 
-- (void)activateStatusBar
-{
+-(void)prepareStringAttributes {	
+	stringAttributes = [[NSMutableDictionary alloc] init];
+	[stringAttributes setObject:[NSFont fontWithName:@"Helvetica"  
+												size:13] 
+						 forKey:NSFontAttributeName];
+	[stringAttributes retain];
+}
+
+- (void)activateStatusBar {
 	NSStatusBar *bar = [NSStatusBar systemStatusBar];
-	
 	theItem = [bar statusItemWithLength:NSVariableStatusItemLength];
 	[theItem retain];
 	[theItem setTarget:self];
 	[theItem setAction:@selector(startStop:)];
-	}
+}
 
 - (void)updateStatusBar {
-	[theItem setTitle:[NSString	stringWithFormat:@"%02d:%02d:%02d",
-					   (seconds / 3600) % 24,
-					   (seconds / 60) % 60,
-					   seconds % 60]];	
-}
+	attributedTimeString = [[NSAttributedString alloc] initWithString:timeString attributes:stringAttributes];
+	[theItem setAttributedTitle:attributedTimeString];
+ }
 @end
