@@ -97,5 +97,28 @@
 - (void)updateStatusBar {
 	attributedTimeString = [[NSAttributedString alloc] initWithString:timeString attributes:stringAttributes];
 	[theItem setAttributedTitle:attributedTimeString];
- }
+}
+
+- (void)writeToPasteboard:(NSPasteboard *)pb {
+	NSRange charRange = NSMakeRange(0, 5);
+	[pb declareTypes:[NSArray 
+		arrayWithObject:NSStringPboardType] 
+	    owner:self];
+	[pb setString:[timeString substringWithRange:charRange] forType:NSStringPboardType];
+}
+
+- (IBAction)cut:(id)sender {
+	[self copy:sender];
+	[self restart:sender];
+}
+- (IBAction)copy:(id)sender {
+	// this will copy the first 5 characters of the time string
+	// to the pasteboard
+	NSLog(@"copy");
+	NSPasteboard *pb = [NSPasteboard generalPasteboard];
+	[self writeToPasteboard:pb];
+}
+
+
+
 @end

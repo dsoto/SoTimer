@@ -19,7 +19,7 @@
 	IBOutlet sotoView *thisSotoView;	
 	// menu bar status item object
 	NSStatusItem *theItem;
-
+	
 }
 
 - (void)prepareStringAttributes;
@@ -31,5 +31,6 @@
 - (IBAction)subtractMinute:(id)sender;
 - (IBAction)restart:(id)sender;
 - (IBAction)startStop:(id)sender;
-
+- (IBAction)copy:(id)sender;
+- (IBAction)cut:(id)sender;
 @end
